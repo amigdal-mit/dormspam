@@ -13,8 +13,8 @@ class Client(Base):
     user_id = Column(Integer, ForeignKey("users.id"))
     user = relationship("User", back_populates="clients")
 
-    uid = Column(String, unique=True)
-    token = Column(String)
+    uid = Column(String(255), unique=True)
+    token = Column(String(255))
 
     date_created = Column(DateTime, default=datetime.datetime.now)
 

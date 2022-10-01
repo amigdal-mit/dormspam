@@ -3,6 +3,7 @@ env/
 **/__pycache__/
 service_account.json
 
+^/migrations
 
 /node_modules
 /server/build

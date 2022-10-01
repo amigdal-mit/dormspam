@@ -10,7 +10,7 @@ class User(Base):
     id = Column(Integer, primary_key=True,
                 unique=True, autoincrement=True)
 
-    email = Column(String, unique=True, primary_key=True)
+    email = Column(String(255), unique=True, primary_key=True)
 
     admin_is = Column(Boolean, default=False)
     

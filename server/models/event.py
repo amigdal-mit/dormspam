@@ -18,16 +18,16 @@ class Event(Base):
     user = relationship("User")
 
     # Email header information
-    header = Column(String, default="")
-    club = Column(String, default="")
+    header = Column(String(255), default="")
+    club = Column(String(255), default="")
 
     # Event characteristics
-    title = Column(String)
-    location = Column(String, default="")
+    title = Column(String(255))
+    location = Column(String(255), default="")
     description = deferred(Column(Text, default=""))
     description_html = deferred(Column(Text, default=""))
 
-    cta_link = Column(String)
+    cta_link = Column(String(255))
     time_start = Column(DateTime)
     time_end = Column(DateTime)
     etype = Column(Integer, default=0)
@@ -42,10 +42,10 @@ class Event(Base):
     parent_event = relationship("Event", remote_side=[id])
 
     # Unique event id
-    eid = Column(String, unique=True)
+    eid = Column(String(255), unique=True)
 
     # Unique event authstring
-    token = Column(String)
+    token = Column(String(255))
 
     date_created = Column(DateTime, default=datetime.datetime.now)
     date_updated = Column(DateTime, default=datetime.datetime.now)
