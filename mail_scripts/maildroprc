@@ -1,0 +1,6 @@
+if ("$1" == "dormspam")
+{
+  to "|${HOME}/Scripts/dormspam/backend/env/bin/python ${HOME}/Scripts/dormspam/backend/scripts_receive_email.py"
+}
+
+to "/dev/null"

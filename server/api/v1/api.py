@@ -25,7 +25,6 @@ api = Api(Blueprint('api', __name__))
 api.add_resource(HelloWorld, '')  # This would be the default hostname/api/v1
 
 # Events
-api.add_resource(api_events.ServerCreateEvent, "/events/server/create")
 api.add_resource(api_events.PublishEvent, "/events/publish")
 api.add_resource(api_events.ApproveEvent, "/events/approve")
 api.add_resource(api_events.DuplicateEvent, "/events/duplicate")

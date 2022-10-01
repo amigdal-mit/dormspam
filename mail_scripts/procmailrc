@@ -1,0 +1,2 @@
+:0
+| maildrop "${HOME}/mail_scripts/maildroprc" "${1}"

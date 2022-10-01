@@ -10,31 +10,6 @@ from datetime import timedelta, datetime
 from server.app import app
 from typing import cast
 
-SERVER_CREATE_PARSER = reqparse.RequestParser(bundle_errors=True)
-SERVER_CREATE_PARSER.add_argument('api_key',
-                                  help='Need api_key',
-                                  required=True)
-
-SERVER_CREATE_PARSER.add_argument('email',
-                                  help='Need email',
-                                  required=True)
-
-
-class ServerCreateEvent(Resource):
-    def get(self):
-        return {'success': False, 'message': "Please use post requests"}
-
-    def post(self):
-        data = SERVER_CREATE_PARSER.parse_args()
-        if data["api_key"] != app.config["SERVER_API_KEY"]:
-            return return_failure("api key incorrect")
-        event = parse_email(data["email"])
-        if (event is not None):
-            return return_success({'event': event.json()})
-        else:
-            return return_failure("could not parse email")
-
-
 PUBLISH_EVENT = reqparse.RequestParser(bundle_errors=True)
 PUBLISH_EVENT.add_argument('eid',
                            help='Need eid',
