@@ -21,6 +21,7 @@ if "REACT_APP_SITEURL" in os.environ:
    
 # Database
 db = SQLAlchemy(app)
+#db.cursor().execute('set max_allowed_packet=1048576')
 
 if app.config["DEBUG"]:
     app.debug = True
