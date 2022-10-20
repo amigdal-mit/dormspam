@@ -6,7 +6,15 @@ from server.emails.parse_type import CATEGORIES
 from server.helpers import *
 import datetime
 import secrets
+import markdown
 
+# TODO: Replace this with something legitimate.
+def sanitize(s):
+    return s.replace('&', '&amp;')\
+            .replace('>', '&gt;')\
+            .replace('<', '&lt;')\
+            .replace("'", '&apos;')\
+            .replace('"', '&quot;')
 
 class Event(Base):
     __tablename__ = "events"
@@ -70,6 +78,7 @@ class Event(Base):
         if (fullJSON == 2):
             additionalJSON = {
                 'desc': self.description,
+                'desc_html': markdown.markdown(sanitize(self.description)),
             }
         elif (fullJSON == 1):
             additionalJSON = {
