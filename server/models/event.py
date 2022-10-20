@@ -25,7 +25,6 @@ class Event(Base):
     title = Column(String(255))
     location = Column(String(255), default="")
     description = deferred(Column(Text, default=""))
-    description_html = deferred(Column(Text, default=""))
 
     cta_link = Column(String(255))
     time_start = Column(DateTime)
@@ -71,7 +70,6 @@ class Event(Base):
         if (fullJSON == 2):
             additionalJSON = {
                 'desc': self.description,
-                'desc_html': self.description_html
             }
         elif (fullJSON == 1):
             additionalJSON = {
@@ -109,7 +107,7 @@ class Event(Base):
             "start_time": self.time_start.isoformat() + "Z",
             "end_time": self.time_end.isoformat() + "Z",
             "host": "MIT", #TODO(kevinfang): Host not implemented
-            "description": self.description_html if self.description_html else self.description,
+            "description": self.description,
             "description_text": self.description,
             "categories": "," + ",".join(cats) + ",",
             "sent_from": "Sent by: " + self.header.replace("|", " on ")

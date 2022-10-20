@@ -51,7 +51,6 @@ def create_server_event(title, etype, description, time_start, message_html=None
     event.etype = etype
     event.description = description
     event.location = location
-    event.description_html = message_html
     event.approved_is = True # Oh dear, just for testing.
     if (time_start is None):
         event.time_start = datetime.now()

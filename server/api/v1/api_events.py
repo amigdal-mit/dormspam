@@ -58,7 +58,7 @@ class DuplicateEvent(Resource):
         event = get_event(data.eid, "", user=user)
         if not event:
             return return_failure("could not get event")
-        new_event = create_server_event(event.title, event.etype, event.description, data.start_date, message_html=event.description_html,
+        new_event = create_server_event(event.title, event.etype, event.description, data.start_date,
                                         location=data.location, time_end=data.end_date, link=event.cta_link, headerInfo=event.header)
         if new_event:
             new_event.parent_event_is = True
