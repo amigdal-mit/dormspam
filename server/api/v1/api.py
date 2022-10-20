@@ -1,7 +1,6 @@
 from flask import Blueprint, request, Response
 from flask_restful import Api, Resource, reqparse
 from server.app import app
-from server.api.v1 import api_login
 from server.api.v1 import api_events
 
 import json
@@ -33,6 +32,3 @@ api.add_resource(api_events.DeleteEvent, "/events/delete")
 api.add_resource(api_events.GetEvents, "/events")
 api.add_resource(api_events.GetAllEvents, "/events/all")
 api.add_resource(api_events.GetEvent, "/events/event")
-
-# Login
-api.add_resource(api_login.ClientLogin, '/client/login')

@@ -14,8 +14,6 @@ class User(Base):
 
     admin_is = Column(Boolean, default=False)
     
-    clients = relationship("Client", back_populates="user")
-
     date_created = Column(DateTime, default=datetime.datetime.now)
     date_updated = Column(DateTime, default=datetime.datetime.now)
 

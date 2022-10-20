@@ -16,7 +16,6 @@ from flask_cors import cross_origin
 
 mod_users = Blueprint("users", __name__)
 
-
 @mod_users.route("/login", methods=["POST"])
 def login():
     if request.json is None:
